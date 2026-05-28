@@ -29,10 +29,10 @@ class RequestDatos{
 public class AlquilerController {
     private EstacionService estacionService=new EstacionService();
     private ProcesamientoPagoService metodoPago=new ProcesamientoPagoService();
+    private Estacion estacion=new Estacion("Mexico");
     @PostMapping("/alquilar")
     public ResponseEntity<String>alquilar(@RequestBody RequestDatos requestDatos){
        try{
-        Estacion estacion=new Estacion("Mexico");
        Vehiculo vehiculo=estacionService.AlquilerVehiculo(estacion.getListaVehiculos(), requestDatos.getPatente());
        String pagoRealizado=metodoPago.finalizarCompra(vehiculo, requestDatos.getMetodoPago(), requestDatos.getTipoUsuario());
        return ResponseEntity.ok(pagoRealizado);
@@ -40,7 +40,7 @@ public class AlquilerController {
             return ResponseEntity.badRequest().body("Error al alquilar: "+e.getMessage());
        }
     }
-     private Estacion estacion=new Estacion("Mexico");
+     
     @GetMapping("/vehiculos")
     public List<Vehiculo> garaje() {
         return estacion.getListaVehiculos();
