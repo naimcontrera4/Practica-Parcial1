@@ -25,12 +25,12 @@ class RequestDatos{
     private String tipoUsuario;
 }
 @RestController
-@RequestMapping("/api/sistema")
+@RequestMapping("/api/alquileres")
 public class AlquilerController {
     private EstacionService estacionService=new EstacionService();
     private ProcesamientoPagoService metodoPago=new ProcesamientoPagoService();
     private Estacion estacion=new Estacion("Mexico");
-    @PostMapping("/alquilar")
+    @PostMapping("/desbloquear")
     public ResponseEntity<String>alquilar(@RequestBody RequestDatos requestDatos){
        try{
        Vehiculo vehiculo=estacionService.AlquilerVehiculo(estacion.getListaVehiculos(), requestDatos.getPatente());
