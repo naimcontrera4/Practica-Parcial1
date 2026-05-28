@@ -34,7 +34,7 @@ public class ProcesamientoPagoService {
         PagoEstrategias metodPago=pago(tipoPago);
         double monto=usuario.calcularPago(vehiculo);
         double montoFinal=metodPago.costoFinal(monto);
-        return "Costo Final al alquilar Vehiculo: "+montoFinal;
+        return "Costo Final al alquilar Vehiculo "+montoFinal+" Realizado con "+tipoPago;
     }
 
 

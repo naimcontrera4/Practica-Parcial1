@@ -24,7 +24,6 @@ public class EstacionService {
         return vehiculo;
     } 
     public Vehiculo AlquilerVehiculo(List<Vehiculo>vehiculos,String patente){
-        obtenerLista(vehiculos);
         Vehiculo vehiculo=busquedaVehiculo(vehiculos, patente);
         return vehiculo;
     }

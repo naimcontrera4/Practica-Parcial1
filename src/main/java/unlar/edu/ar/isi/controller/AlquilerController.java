@@ -1,13 +1,14 @@
 package unlar.edu.ar.isi.controller;
 
+import java.util.List;
 import java.util.UUID;
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import lombok.Getter;
 import lombok.Setter;
 import unlar.edu.ar.isi.model.Estacion;
@@ -28,7 +29,7 @@ class RequestDatos{
 public class AlquilerController {
     private EstacionService estacionService=new EstacionService();
     private ProcesamientoPagoService metodoPago=new ProcesamientoPagoService();
-    @GetMapping("/alquilar")
+    @PostMapping("/alquilar")
     public ResponseEntity<String>alquilar(@RequestBody RequestDatos requestDatos){
        try{
         Estacion estacion=new Estacion("Mexico");
@@ -39,4 +40,10 @@ public class AlquilerController {
             return ResponseEntity.badRequest().body("Error al alquilar: "+e.getMessage());
        }
     }
+     private Estacion estacion=new Estacion("Mexico");
+    @GetMapping("/vehiculos")
+    public List<Vehiculo> garaje() {
+        return estacion.getListaVehiculos();
+    }
 }
+
