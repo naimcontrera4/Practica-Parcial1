@@ -18,4 +18,5 @@ public class Estacion {
         this.listaVehiculos.add(new Vehiculo("MOTO999", 10,500));  
         this.listaVehiculos.add(new Vehiculo("UNLAR22", 50,500));
     }
+    
 }

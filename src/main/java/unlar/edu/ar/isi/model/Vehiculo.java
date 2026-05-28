@@ -13,4 +13,9 @@ public class Vehiculo {
     private String patente;
     private double bateria;
     private double tarifaBase;
+    
+    @Override
+    public String toString(){
+        return "patente: "+patente+" | Bateria: "+bateria+" |Tarifa: "+tarifaBase;
+    }
 }
